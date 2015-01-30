@@ -2,14 +2,17 @@ package com.example.mytest;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.View.OnClickListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class WebActivity extends Activity {
@@ -19,7 +22,7 @@ public class WebActivity extends Activity {
 		super.onCreate(savedInstanceState);
         //设置activity的进度条，下面一句必须在setContentView之前，否则会报错。下面的语句也可以用activity.requestWindowFeature(Window.FEATURE_PROGRESS);来替代
         this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏标题栏
+//        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏标题栏
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
         
 		setContentView(R.layout.activity_web);
@@ -62,6 +65,15 @@ public class WebActivity extends Activity {
 
 		webview.loadUrl(url) ;
 	
+		this.findViewById(R.id.btback).setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				//切换
+				Intent intent = new Intent(WebActivity.this, MainActivity.class);
+                startActivity(intent);
+			}
+			
+		}) ;
 	}
 	
 

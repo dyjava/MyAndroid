@@ -4,7 +4,7 @@
     <string name="app_name">Android生活版</string>
     <string name="action_settings">Settings</string>
     <string name="name">diyong</string>
-    <string name="title_activity_web">WebActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="back">关闭</string>
 
 </resources>
