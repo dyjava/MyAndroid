@@ -5,19 +5,17 @@ import com.aba.main.BaseActivity;
 
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 
 //°´Å¥¼àÌý
-public class ButtonOnClickListener implements OnClickListener {
+public class ViewOnClickListener implements OnClickListener {
 
 	BaseActivity act ;
-	public ButtonOnClickListener(BaseActivity act) {
+	public ViewOnClickListener(BaseActivity act) {
 		this.act = act ;
 	}
 	@Override
 	public void onClick(View v) {
-		Button bt = (Button)v ;
-		act.btOnClick(bt) ;
+		act.viewOnClick(v) ;
 	}
 
 }

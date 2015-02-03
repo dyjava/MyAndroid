@@ -2,7 +2,7 @@ package com.aba.main;
 
 import com.aba.main.game.GameActivity;
 import com.aba.main.shudu.ShuduActivity;
-import com.aba.main.util.ButtonOnClickListener;
+import com.aba.main.util.ViewOnClickListener;
 import com.aba.main.webview.WebActivity;
 import com.example.mytest.R;
 
@@ -20,15 +20,15 @@ public class MainActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		this.findViewById(R.id.btn01).setOnClickListener(new ButtonOnClickListener(this)) ;
-		this.findViewById(R.id.btn02).setOnClickListener(new ButtonOnClickListener(this)) ;
-		this.findViewById(R.id.btn03).setOnClickListener(new ButtonOnClickListener(this)) ;
-		this.findViewById(R.id.btn04).setOnClickListener(new ButtonOnClickListener(this)) ;
-		this.findViewById(R.id.btn05).setOnClickListener(new ButtonOnClickListener(this)) ;
-		this.findViewById(R.id.btn06).setOnClickListener(new ButtonOnClickListener(this)) ;
-		this.findViewById(R.id.btn07).setOnClickListener(new ButtonOnClickListener(this)) ;
-		this.findViewById(R.id.btn08).setOnClickListener(new ButtonOnClickListener(this)) ;
-		this.findViewById(R.id.btn09).setOnClickListener(new ButtonOnClickListener(this)) ;
+		this.findViewById(R.id.btn01).setOnClickListener(new ViewOnClickListener(this)) ;
+		this.findViewById(R.id.btn02).setOnClickListener(new ViewOnClickListener(this)) ;
+		this.findViewById(R.id.btn03).setOnClickListener(new ViewOnClickListener(this)) ;
+		this.findViewById(R.id.btn04).setOnClickListener(new ViewOnClickListener(this)) ;
+		this.findViewById(R.id.btn05).setOnClickListener(new ViewOnClickListener(this)) ;
+		this.findViewById(R.id.btn06).setOnClickListener(new ViewOnClickListener(this)) ;
+		this.findViewById(R.id.btn07).setOnClickListener(new ViewOnClickListener(this)) ;
+		this.findViewById(R.id.btn08).setOnClickListener(new ViewOnClickListener(this)) ;
+		this.findViewById(R.id.btn09).setOnClickListener(new ViewOnClickListener(this)) ;
 		
 		//webview
 		this.findViewById(R.id.btnurl).setOnClickListener(new OnClickListener(){

@@ -1,9 +1,11 @@
 package com.aba.main;
 
 import android.app.Activity;
-import android.widget.Button;
+import android.view.View;
 
-public abstract class BaseActivity extends Activity {
+public class BaseActivity extends Activity {
 
-	public abstract void btOnClick(Button bt) ;
+	public void viewOnClick(View v){
+		
+	}
 }

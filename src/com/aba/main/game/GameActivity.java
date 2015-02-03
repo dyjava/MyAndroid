@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aba.main.BaseActivity;
-import com.aba.main.util.ButtonOnClickListener;
-import com.example.mytest.R;
+import com.aba.main.util.ViewOnClickListener;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.widget.Button;
+import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 public class GameActivity extends BaseActivity {
 
@@ -24,62 +24,63 @@ public class GameActivity extends BaseActivity {
         layout.setOrientation(TableLayout.VERTICAL);
         
         //Ëæ»ú
-        List<Object> set = new ArrayList<Object>() ;
-        set.add(2) ;
-        set.add(4) ;
-        set.add(6) ;
-        set.add(1) ;
-        set.add(7) ;
-        set.add(8) ;
-        set.add(5) ;
-        set.add(3) ;
-        set.add("") ;
+        List<String> list = new ArrayList<String>() ;
+        for(int i=0;i<8;i++){
+        	list.add(i+1+"") ;
+        }
+        list.add("") ;
         
         //»æÍ¼
         int i=0;
         for(int r=0;r<3;r++){
         	TableRow row = new TableRow(this);
         	for(int c=0;c<3;c++){
-        		Button btn = new Button(this);
-//        		btn.setText(r+"-"+c) ;
-        		btn.setText((8-i)+"") ;
-        		if(i==8){
-        			btn.setText("") ;
-        		}
-        		btn.setId(i++) ;
-        		btn.setWidth(100) ;
-        		btn.setHeight(100) ;
-        		btn.setOnClickListener(new ButtonOnClickListener(this)) ;
-        		
-        		row.addView(btn) ;
+        		//Ëæ»úÌî³ä
+        		int point = (int)(Math.random()*list.size()) ;
+        		String text = list.remove(point);
+				row.addView(this.createView(text, i++)) ;
         	}
         	layout.addView(row);
         }
         setContentView(layout);  
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.game, menu);
-		return true;
+	//´´½¨°´Å¥
+	private View createView(String text, int id){
+//		Button view = new Button(this);
+		TextView view = new TextView(this) ;
+		
+		view.setText(text);
+		view.setId(id) ;
+		view.setWidth(200) ;
+		view.setHeight(200) ;
+		view.setTextColor(Color.BLUE) ;
+		int point =5 ;
+		view.setLeft(point) ;
+		view.setRight(point) ;
+		view.setTop(point) ;
+		view.setBottom(point) ;
+		view.setBackgroundColor(Color.CYAN) ;
+		view.setOnClickListener(new ViewOnClickListener(this)) ;
+		return view ;
 	}
 	
 	@Override
-	public void btOnClick(Button bt) {
-		String title = bt.getText().toString() ;
+	public void viewOnClick(View v) {
+		TextView bt = (TextView) v;
+		String title = bt .getText().toString() ;
 		int id = bt.getId() ;
+		//½ôÁÚµÄÎª¿Õ£¬ÏÔÊ¾ÄÚÈÝ»¥»»
 		for(int i=0;i<9;i++){
-			Button bt2 = (Button) this.findViewById(i) ;
-			if(bt2.getText().toString().length()==0){
+			TextView view = (TextView) this.findViewById(i) ;
+			if(view.getText().toString().length()==0){
 				if(i==id-1 || i==id+1 || i==id+3 || i==id-3){
 					bt.setText("") ;
-					bt2.setText(title) ;
+					view.setText(title) ;
 				}
 				break ;
 			}
 		}
-		
 		
 	}
 
