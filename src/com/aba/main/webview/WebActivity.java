@@ -34,7 +34,7 @@ public class WebActivity extends Activity {
 		setContentView(R.layout.activity_web);
 		Bundle bundle = this.getIntent().getExtras();
         //接收url值
-        String url = bundle.getString("url");
+        String url = bundle.getString("context");
 
 		WebView webview = (WebView) this.findViewById(R.id.webkit) ;
 		//html设置

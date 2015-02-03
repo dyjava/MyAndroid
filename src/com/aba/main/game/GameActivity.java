@@ -42,12 +42,11 @@ public class GameActivity extends BaseActivity {
         	}
         	layout.addView(row);
         }
-        setContentView(layout);  
+        setContentView(layout);
 	}
 
 	//´´½¨°´Å¥
 	private View createView(String text, int id){
-//		Button view = new Button(this);
 		TextView view = new TextView(this) ;
 		
 		view.setText(text);
