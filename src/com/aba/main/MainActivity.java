@@ -2,11 +2,11 @@ package com.aba.main;
 
 import com.aba.main.game.GameActivity;
 import com.aba.main.shudu.ShuduActivity;
+import com.aba.main.util.ButtonOnClickListener;
 import com.aba.main.webview.WebActivity;
 import com.example.mytest.R;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -14,21 +14,21 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		this.findViewById(R.id.btn01).setOnClickListener(new BTOnClickListener(this)) ;
-		this.findViewById(R.id.btn02).setOnClickListener(new BTOnClickListener(this)) ;
-		this.findViewById(R.id.btn03).setOnClickListener(new BTOnClickListener(this)) ;
-		this.findViewById(R.id.btn04).setOnClickListener(new BTOnClickListener(this)) ;
-		this.findViewById(R.id.btn05).setOnClickListener(new BTOnClickListener(this)) ;
-		this.findViewById(R.id.btn06).setOnClickListener(new BTOnClickListener(this)) ;
-		this.findViewById(R.id.btn07).setOnClickListener(new BTOnClickListener(this)) ;
-		this.findViewById(R.id.btn08).setOnClickListener(new BTOnClickListener(this)) ;
-		this.findViewById(R.id.btn09).setOnClickListener(new BTOnClickListener(this)) ;
+		this.findViewById(R.id.btn01).setOnClickListener(new ButtonOnClickListener(this)) ;
+		this.findViewById(R.id.btn02).setOnClickListener(new ButtonOnClickListener(this)) ;
+		this.findViewById(R.id.btn03).setOnClickListener(new ButtonOnClickListener(this)) ;
+		this.findViewById(R.id.btn04).setOnClickListener(new ButtonOnClickListener(this)) ;
+		this.findViewById(R.id.btn05).setOnClickListener(new ButtonOnClickListener(this)) ;
+		this.findViewById(R.id.btn06).setOnClickListener(new ButtonOnClickListener(this)) ;
+		this.findViewById(R.id.btn07).setOnClickListener(new ButtonOnClickListener(this)) ;
+		this.findViewById(R.id.btn08).setOnClickListener(new ButtonOnClickListener(this)) ;
+		this.findViewById(R.id.btn09).setOnClickListener(new ButtonOnClickListener(this)) ;
 		
 		//webview
 		this.findViewById(R.id.btnurl).setOnClickListener(new OnClickListener(){
@@ -72,7 +72,8 @@ public class MainActivity extends Activity {
 	}
 	
 
-	public void show(String title){
+	public void btOnClick(Button bt){
+		String title = bt.getText().toString() ;
 		TextView tv = (TextView)this.findViewById(R.id.btn00) ;
 		String name = tv.getText().toString() ;
 		if(name.trim().length()==0){

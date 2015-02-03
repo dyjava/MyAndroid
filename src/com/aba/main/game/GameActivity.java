@@ -1,22 +1,19 @@
 package com.aba.main.game;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
-import com.aba.main.MainActivity;
+import com.aba.main.BaseActivity;
+import com.aba.main.util.ButtonOnClickListener;
 import com.example.mytest.R;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
-public class GameActivity extends Activity {
+public class GameActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +49,7 @@ public class GameActivity extends Activity {
         		btn.setId(i++) ;
         		btn.setWidth(100) ;
         		btn.setHeight(100) ;
-        		btn.setOnClickListener(new GameOnClickListener(this)) ;
+        		btn.setOnClickListener(new ButtonOnClickListener(this)) ;
         		
         		row.addView(btn) ;
         	}
@@ -67,31 +64,23 @@ public class GameActivity extends Activity {
 		getMenuInflater().inflate(R.menu.game, menu);
 		return true;
 	}
-	class GameOnClickListener implements OnClickListener {
-
-		GameActivity act ;
-		public GameOnClickListener(GameActivity mainActivity) {
-			act = mainActivity ;
-		}
-		@Override
-		public void onClick(View v) {
-			Button bt = (Button)v ;
-			String title = bt.getText().toString() ;
-			int id = bt.getId() ;
-			for(int i=0;i<9;i++){
-				Button bt2 = (Button) act.findViewById(i) ;
-				if(bt2.getText().toString().length()==0){
-					if(i==id-1 || i==id+1 || i==id+3 || i==id-3){
-						bt.setText("") ;
-						bt2.setText(title) ;
-					}
-					break ;
+	
+	@Override
+	public void btOnClick(Button bt) {
+		String title = bt.getText().toString() ;
+		int id = bt.getId() ;
+		for(int i=0;i<9;i++){
+			Button bt2 = (Button) this.findViewById(i) ;
+			if(bt2.getText().toString().length()==0){
+				if(i==id-1 || i==id+1 || i==id+3 || i==id-3){
+					bt.setText("") ;
+					bt2.setText(title) ;
 				}
+				break ;
 			}
-			
-			
 		}
-
+		
+		
 	}
 
 
