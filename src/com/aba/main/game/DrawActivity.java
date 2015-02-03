@@ -17,6 +17,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
@@ -54,7 +55,9 @@ public class DrawActivity extends BaseActivity implements OnTouchListener,OnClic
          */
         image = new ImageView(this) ;
         choose = new Button(this) ;
+        choose.setText("Ñ¡Ôñ") ;
         save = new Button(this) ;
+        save.setText("±£´æ") ;
         
         image.setOnTouchListener(this);
         choose.setOnClickListener(this);
@@ -74,32 +77,30 @@ public class DrawActivity extends BaseActivity implements OnTouchListener,OnClic
     private float upy = 0;
 
     public boolean onTouch(View v, MotionEvent event) {
-        int action = event.getAction();
-        switch (action) {
-        case MotionEvent.ACTION_DOWN:
-            downx = event.getX();
-            downy = event.getY();
-            break;
-        case MotionEvent.ACTION_MOVE:
-            // Â·¾¶»­°å
-            upx = event.getX();
-            upy = event.getY();
-            canvas.drawLine(downx, downy, upx, upy, paint);
-            image.invalidate();
-            downx = upx;
-            downy = upy;
-            break;
-        case MotionEvent.ACTION_UP:
-            // Ö±Ïß»­°å
-
-            upx = event.getX();
-            upy = event.getY();
-            canvas.drawLine(downx, downy, upx, upy, paint);
-            image.invalidate();// Ë¢ÐÂ
-            break;
-
-        default:
-            break;
+    	int action = event.getAction();
+    	switch (action) {
+	    	case MotionEvent.ACTION_DOWN:
+	            downx = event.getX();
+	            downy = event.getY();
+	            break;
+	        case MotionEvent.ACTION_MOVE:
+	            // Â·¾¶»­°å
+	            upx = event.getX();
+	            upy = event.getY();
+	            canvas.drawLine(downx, downy, upx, upy, paint);
+	            image.invalidate();
+	            downx = upx;
+	            downy = upy;
+	            break;
+	        case MotionEvent.ACTION_UP:
+	            // Ö±Ïß»­°å
+	            upx = event.getX();
+	            upy = event.getY();
+	            canvas.drawLine(downx, downy, upx, upy, paint);
+	            image.invalidate();// Ë¢ÐÂ
+	            break;
+	        default:
+	            break;
         }
 
         return true;
@@ -134,6 +135,10 @@ public class DrawActivity extends BaseActivity implements OnTouchListener,OnClic
             Display display = getWindowManager().getDefaultDisplay();
             float dw = display.getWidth();
             float dh = display.getHeight();
+//            DisplayMetrics metric = new DisplayMetrics();
+//            getWindowManager().getDefaultDisplay().getMetrics(metric);
+//            int dw = metric.widthPixels;     // ÆÁÄ»¿í¶È£¨ÏñËØ£©
+//            int dh = metric.heightPixels;   // ÆÁÄ»¸ß¶È£¨ÏñËØ£©
 
             try {
                 BitmapFactory.Options options = new BitmapFactory.Options();
@@ -156,14 +161,13 @@ public class DrawActivity extends BaseActivity implements OnTouchListener,OnClic
                         bitmap.getHeight(), bitmap.getConfig());
                 canvas = new Canvas(alterBitmap);
                 paint = new Paint();
-                paint.setColor(Color.GREEN);
+                paint.setColor(Color.RED);
                 paint.setStrokeWidth(10);
                 Matrix matrix = new Matrix();
                 canvas.drawBitmap(bitmap, matrix, paint);
                 image.setImageBitmap(alterBitmap);
                 image.setOnTouchListener(this);
             } catch (FileNotFoundException e) {
-
                 e.printStackTrace();
             }
 

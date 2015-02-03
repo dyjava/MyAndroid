@@ -1,5 +1,6 @@
 package com.aba.main;
 
+import com.aba.main.game.Draw2Activity;
 import com.aba.main.game.DrawActivity;
 import com.aba.main.game.GameActivity;
 import com.aba.main.shudu.ShuduActivity;
@@ -37,6 +38,8 @@ public class MainActivity extends BaseActivity {
 		this.findViewById(R.id.btgame).setOnClickListener(new ChangeOnClickListener(this, GameActivity.class)) ;
 		//Êý¶À
 		this.findViewById(R.id.btdraw).setOnClickListener(new ChangeOnClickListener(this, DrawActivity.class)) ;
+		//Êý¶À
+		this.findViewById(R.id.btdraw2).setOnClickListener(new ChangeOnClickListener(this, Draw2Activity.class)) ;
 	}
 	
 
