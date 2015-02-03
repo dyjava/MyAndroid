@@ -24,33 +24,37 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080012;
-        public static final int btback=0x7f080011;
-        public static final int btn00=0x7f080003;
-        public static final int btn01=0x7f080005;
-        public static final int btn02=0x7f080006;
-        public static final int btn03=0x7f080007;
-        public static final int btn04=0x7f080009;
-        public static final int btn05=0x7f08000a;
-        public static final int btn06=0x7f08000b;
-        public static final int btn07=0x7f08000d;
-        public static final int btn08=0x7f08000e;
-        public static final int btn09=0x7f08000f;
+        public static final int action_settings=0x7f080013;
+        public static final int btback=0x7f080012;
+        public static final int btgame=0x7f080002;
+        public static final int btn00=0x7f080004;
+        public static final int btn01=0x7f080006;
+        public static final int btn02=0x7f080007;
+        public static final int btn03=0x7f080008;
+        public static final int btn04=0x7f08000a;
+        public static final int btn05=0x7f08000b;
+        public static final int btn06=0x7f08000c;
+        public static final int btn07=0x7f08000e;
+        public static final int btn08=0x7f08000f;
+        public static final int btn09=0x7f080010;
         public static final int btnurl=0x7f080000;
-        public static final int tableRow1=0x7f080004;
-        public static final int tableRow2=0x7f080008;
-        public static final int tableRow3=0x7f08000c;
-        public static final int tablelayout01=0x7f080001;
-        public static final int textView1=0x7f080002;
-        public static final int webkit=0x7f080010;
+        public static final int btshu=0x7f080001;
+        public static final int tableRow1=0x7f080005;
+        public static final int tableRow2=0x7f080009;
+        public static final int tableRow3=0x7f08000d;
+        public static final int tablelayout01=0x7f080003;
+        public static final int webkit=0x7f080011;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int activity_web=0x7f030001;
+        public static final int activity_shudu=0x7f030001;
+        public static final int activity_web=0x7f030002;
     }
     public static final class menu {
-        public static final int main=0x7f070000;
-        public static final int web=0x7f070001;
+        public static final int game=0x7f070000;
+        public static final int main=0x7f070001;
+        public static final int shudu=0x7f070002;
+        public static final int web=0x7f070003;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -58,6 +62,8 @@ public final class R {
         public static final int back=0x7f050004;
         public static final int hello_world=0x7f050003;
         public static final int name=0x7f050002;
+        public static final int title_activity_game=0x7f050006;
+        public static final int title_activity_shudu=0x7f050005;
     }
     public static final class style {
         /** 

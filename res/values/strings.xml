@@ -6,5 +6,7 @@
     <string name="name">diyong</string>
     <string name="hello_world">Hello world!</string>
     <string name="back">关闭</string>
+    <string name="title_activity_shudu">数独</string>
+    <string name="title_activity_game">拼图</string>
 
 </resources>

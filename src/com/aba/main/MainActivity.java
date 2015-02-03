@@ -1,4 +1,9 @@
-package com.example.mytest;
+package com.aba.main;
+
+import com.aba.main.game.GameActivity;
+import com.aba.main.shudu.ShuduActivity;
+import com.aba.main.webview.WebActivity;
+import com.example.mytest.R;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -25,14 +30,13 @@ public class MainActivity extends Activity {
 		this.findViewById(R.id.btn08).setOnClickListener(new BTOnClickListener(this)) ;
 		this.findViewById(R.id.btn09).setOnClickListener(new BTOnClickListener(this)) ;
 		
+		//webview
 		this.findViewById(R.id.btnurl).setOnClickListener(new OnClickListener(){
-			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Button bt = (Button)v ;
 				String url = bt.getText().toString() ;
-				
 				//ÇÐ»»
 				Intent intent = new Intent(MainActivity.this, WebActivity.class);
 
@@ -44,7 +48,26 @@ public class MainActivity extends Activity {
 			    
                 startActivity(intent);
 			}
-			
+		}) ;
+
+		//Êý¶À
+		this.findViewById(R.id.btshu).setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				//ÇÐ»»
+				Intent intent = new Intent(MainActivity.this, ShuduActivity.class);
+                startActivity(intent);
+			}
+		}) ;
+
+		//Êý¶À
+		this.findViewById(R.id.btgame).setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				//ÇÐ»»
+				Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                startActivity(intent);
+			}
 		}) ;
 	}
 	

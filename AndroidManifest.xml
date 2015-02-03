@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.mytest.MainActivity"
+            android:name="com.aba.main.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,12 +34,20 @@
                 <data android:scheme="about" />  
                 <data android:scheme="javascript" />  
             </intent-filter>
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             -->
         </activity>
         <activity
-            android:label="@string/app_name"
-            android:name="com.example.mytest.WebActivity" >
+            android:name="com.aba.main.webview.WebActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.aba.main.shudu.ShuduActivity"
+            android:label="@string/title_activity_shudu" >
+        </activity>
+        <activity
+            android:name="com.aba.main.game.GameActivity"
+            android:label="@string/title_activity_game" >
         </activity>
     </application>
 
