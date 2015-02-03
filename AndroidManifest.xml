@@ -49,6 +49,10 @@
             android:name="com.aba.main.game.GameActivity"
             android:label="@string/title_activity_game" >
         </activity>
+        <activity
+            android:name="com.aba.main.game.DrawActivity"
+            android:label="@string/title_activity_draw" >
+        </activity>
     </application>
 
 </manifest>

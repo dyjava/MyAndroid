@@ -8,5 +8,6 @@
     <string name="back">关闭</string>
     <string name="title_activity_shudu">数独</string>
     <string name="title_activity_game">拼图</string>
+    <string name="title_activity_draw">画图</string>
 
 </resources>

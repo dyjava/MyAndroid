@@ -21,21 +21,25 @@
             
         <Button
             android:id="@+id/btnurl"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="http://m.12580.com" />
-
         <Button
             android:id="@+id/btshu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="数" />
-            
         <Button
             android:id="@+id/btgame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="图" />
+            android:text="拼" />
+        <Button
+            android:id="@+id/btdraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="画" />
+        
         </LinearLayout>
 
         <TableLayout

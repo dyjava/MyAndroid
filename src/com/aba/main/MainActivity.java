@@ -1,5 +1,6 @@
 package com.aba.main;
 
+import com.aba.main.game.DrawActivity;
 import com.aba.main.game.GameActivity;
 import com.aba.main.shudu.ShuduActivity;
 import com.aba.main.util.ViewOnClickListener;
@@ -7,10 +8,8 @@ import com.aba.main.webview.WebActivity;
 import com.example.mytest.R;
 
 import android.os.Bundle;
-import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -31,49 +30,19 @@ public class MainActivity extends BaseActivity {
 		this.findViewById(R.id.btn09).setOnClickListener(new ViewOnClickListener(this)) ;
 		
 		//webview
-		this.findViewById(R.id.btnurl).setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Button bt = (Button)v ;
-				String url = bt.getText().toString() ;
-				//切换
-				Intent intent = new Intent(MainActivity.this, WebActivity.class);
-
-			    //用Bundle携带数据
-			    Bundle bundle=new Bundle();
-			    //传递name参数为tinyphp
-			    bundle.putString("url", url);
-			    intent.putExtras(bundle);
-			    
-                startActivity(intent);
-			}
-		}) ;
-
+		this.findViewById(R.id.btnurl).setOnClickListener(new ChangeOnClickListener(this, WebActivity.class)) ;
 		//数独
-		this.findViewById(R.id.btshu).setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				//切换
-				Intent intent = new Intent(MainActivity.this, ShuduActivity.class);
-                startActivity(intent);
-			}
-		}) ;
-
+		this.findViewById(R.id.btshu).setOnClickListener(new ChangeOnClickListener(this, ShuduActivity.class)) ;
 		//数独
-		this.findViewById(R.id.btgame).setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				//切换
-				Intent intent = new Intent(MainActivity.this, GameActivity.class);
-                startActivity(intent);
-			}
-		}) ;
+		this.findViewById(R.id.btgame).setOnClickListener(new ChangeOnClickListener(this, GameActivity.class)) ;
+		//数独
+		this.findViewById(R.id.btdraw).setOnClickListener(new ChangeOnClickListener(this, DrawActivity.class)) ;
 	}
 	
 
-	public void btOnClick(Button bt){
-		String title = bt.getText().toString() ;
+	public void viewOnClick(View v){
+		Button bt = (Button) v;
+		String title = bt .getText().toString() ;
 		TextView tv = (TextView)this.findViewById(R.id.btn00) ;
 		String name = tv.getText().toString() ;
 		if(name.trim().length()==0){
