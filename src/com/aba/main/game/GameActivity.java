@@ -8,6 +8,7 @@ import com.aba.main.util.ViewOnClickListener;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -54,12 +55,14 @@ public class GameActivity extends BaseActivity {
 		view.setWidth(200) ;
 		view.setHeight(200) ;
 		view.setTextColor(Color.BLUE) ;
+		view.setTextSize(24) ;
 		int point =5 ;
 		view.setLeft(point) ;
 		view.setRight(point) ;
 		view.setTop(point) ;
 		view.setBottom(point) ;
-		view.setBackgroundColor(Color.CYAN) ;
+		view.setGravity(Gravity.CENTER);
+		view.setBackgroundColor(Color.rgb(210, 105, 30)) ;
 		view.setOnClickListener(new ViewOnClickListener(this)) ;
 		return view ;
 	}

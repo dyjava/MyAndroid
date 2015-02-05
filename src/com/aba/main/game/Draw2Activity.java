@@ -1,7 +1,7 @@
 package com.aba.main.game;
 
 import com.aba.main.BaseActivity;
-import com.example.mytest.R;
+import com.aba.main.R;
 
 import android.os.Bundle;
 import android.graphics.Bitmap;

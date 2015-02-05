@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mytest"
+    package="com.aba.main"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -50,12 +50,20 @@
             android:label="@string/title_activity_game" >
         </activity>
         <activity
+            android:name="com.aba.main.game.SuanActivity"
+            android:label="@string/title_activity_game" >
+        </activity>
+        <activity
             android:name="com.aba.main.game.DrawActivity"
             android:label="@string/title_activity_draw" >
         </activity>
         <activity
             android:name="com.aba.main.game.Draw2Activity"
             android:label="@string/title_activity_draw" >
+        </activity>
+        <activity
+            android:name="com.aba.main.shudu.CitysActivity"
+            android:label="@string/title_activity_shudu" >
         </activity>
     </application>
 

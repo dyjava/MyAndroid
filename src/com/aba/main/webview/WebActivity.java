@@ -1,10 +1,7 @@
 package com.aba.main.webview;
 
 import com.aba.main.MainActivity;
-import com.example.mytest.R;
-import com.example.mytest.R.id;
-import com.example.mytest.R.layout;
-import com.example.mytest.R.menu;
+import com.aba.main.R;
 
 import android.os.Bundle;
 import android.app.Activity;
