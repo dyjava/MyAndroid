@@ -8,12 +8,15 @@ import com.aba.service.area.domain.AreaRequest;
 import com.aba.service.area.domain.AreaResult;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.app.Activity;
 import android.graphics.Color;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -21,31 +24,63 @@ import android.widget.TextView;
 public class CitysActivity extends Activity implements OnClickListener{
 
 	private AreaDao dao ;
+	private AreaResult result = new AreaResult() ;
+	private AreaRequest request = new AreaRequest() ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+//		if (android.os.Build.VERSION.SDK_INT > 9) {
+//	        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//	        StrictMode.setThreadPolicy(policy);
+//	    }
 		dao = Factory.getInstance().getAreaDao() ;
-		AreaRequest request = new AreaRequest() ;
-		request.setLeve("1") ;
-		AreaResult result = dao.findAreaByParentId(request) ;
 		
 		TableLayout layout=new TableLayout(this);  
 		layout.setStretchAllColumns(true);
         layout.setOrientation(TableLayout.VERTICAL);
+        layout.setId(0) ;
+        layout.setLayoutParams(new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT, 1.0f)) ;
+        
         TableRow row1 = new TableRow(this);
         row1.addView(this.createView("text",100)) ;
         layout.addView(row1);
         
+        setContentView(layout);
+
+    	new Thread(){
+    		@Override
+    		public void run(){
+    			//你要执行的方法
+    			//执行完毕后给handler发送一个空消息
+    			request.setLeve("1") ;
+    			result = dao.findAreaByParentId(request) ;
+    			
+    			handler.sendEmptyMessage(0);
+    		}
+    	}.start();
+    	
+	}
+
+	//定义Handler对象
+	private Handler handler = new Handler(){
+		@Override
+		//当有消息发送出来的时候就执行Handler的这个方法
+		public void handleMessage(Message msg){
+			super.handleMessage(msg);
+			//处理UI
+			draw() ;
+		}
+	};
+	private void draw(){
         //绘图
-        int n= 4 ;
-        int c =0 ;
+        int n= 3 ;
         TableRow row = new TableRow(this);
-        for(AreaItem item:result.getMatches()){
-        	row.addView(this.createView(item.getAlias(),c++)) ;
+        TableLayout layout = (TableLayout) this.findViewById(0);
+		for(AreaItem item:result.getMatches()){
+        	row.addView(this.createView(item.getAlias(),item.getAreaid() )) ;
         	
         	if(row.getChildCount()==n){
-        		layout.addView(row);
+        		layout .addView(row);
         		row = new TableRow(this);
         	}
         }
@@ -53,14 +88,6 @@ public class CitysActivity extends Activity implements OnClickListener{
     	if(row.getChildCount()>0){
     		layout.addView(row);
     	}
-        setContentView(layout);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.shudu, menu);
-		return true;
 	}
 
 	//创建按钮
@@ -86,9 +113,19 @@ public class CitysActivity extends Activity implements OnClickListener{
 	
 
 	@Override
-	public void onClick(View arg0) {
+	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+		TextView view = (TextView) v ;
+		final String id = v.getId()+"";
+    	new Thread(){
+    		@Override
+    		public void run(){
+    			request.setId(id) ;
+    			result = dao.findAreaById(request) ;
+    			
+    			handler.sendEmptyMessage(0);
+    		}
+    	}.start();
 	}
-
+	
 }

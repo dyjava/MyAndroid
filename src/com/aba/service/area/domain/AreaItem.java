@@ -2,22 +2,22 @@ package com.aba.service.area.domain;
 
 public class AreaItem {
 
-	private String id = "" ;
-	private String areaid = "" ;
+	private int id = 0 ;
+	private int areaid = 0 ;
 	private String cname = "" ;
 	private String alias = "" ;
 	private String areaidp = "" ;
 	private String cnamep = "" ;
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	public String getAreaid() {
+	public int getAreaid() {
 		return areaid;
 	}
-	public void setAreaid(String areaid) {
+	public void setAreaid(int areaid) {
 		this.areaid = areaid;
 	}
 	public String getCname() {
