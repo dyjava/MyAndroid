@@ -1,4 +1,4 @@
-package com.aba.main.game;
+package com.aba.main.draw;
 
 import java.io.FileNotFoundException;
 import java.io.OutputStream;

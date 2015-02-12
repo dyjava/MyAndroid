@@ -1,7 +1,7 @@
 package com.aba.main;
 
-import com.aba.main.game.Draw2Activity;
-import com.aba.main.game.DrawActivity;
+import com.aba.main.draw.Draw2Activity;
+import com.aba.main.draw.DrawActivity;
 import com.aba.main.game.GameActivity;
 import com.aba.main.game.SuanActivity;
 import com.aba.main.shudu.CitysActivity;

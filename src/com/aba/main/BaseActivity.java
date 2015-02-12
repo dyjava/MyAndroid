@@ -1,22 +1,36 @@
 package com.aba.main;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.MemoryFile;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 public class BaseActivity extends Activity {
+	protected File storedir ;
 
+	public BaseActivity(){
+		//项目存储数据目录
+		storedir = Environment.getDataDirectory() ;
+		storedir = Environment.getExternalStorageDirectory() ;
+		this.storedir = new File(storedir,"dyong") ;
+		if(!this.storedir.exists()){
+			this.storedir.mkdirs() ;
+		}
+	}
 	public void viewOnClick(View v){
 		
 	}
 
 class ChangeOnClickListener implements OnClickListener{
-	
 	private BaseActivity act ;
 	private Class<?> clazz ;
+	
 	public ChangeOnClickListener(BaseActivity act, Class<?> clazz){
 		this.act = act ;
 		this.clazz = clazz ;

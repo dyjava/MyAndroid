@@ -1,4 +1,4 @@
-package com.aba.main.game;
+package com.aba.main.draw;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -38,7 +38,7 @@ public class Draw2Activity extends BaseActivity{
 		// 创建一张空白图片
 		int width = getWindowManager().getDefaultDisplay().getWidth() ;
 		int height = getWindowManager().getDefaultDisplay().getHeight() ;
-		baseBitmap = Bitmap.createBitmap(width, height-20, Bitmap.Config.ARGB_8888);
+		baseBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		// 创建一张画布
 		canvas = new Canvas(baseBitmap);
 		// 画布背景为灰色
@@ -84,8 +84,7 @@ public class Draw2Activity extends BaseActivity{
 	
 	public void save(View view) {
 		try {
-			File file = new File(Environment.getExternalStorageDirectory(),
-					System.currentTimeMillis() + ".jpg");
+			File file = new File(this.storedir, System.currentTimeMillis() + ".jpg");
 			OutputStream stream = new FileOutputStream(file);
 			baseBitmap.compress(CompressFormat.JPEG, 100, stream);
 			stream.close();
