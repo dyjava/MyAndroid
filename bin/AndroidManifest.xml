@@ -55,8 +55,10 @@
             android:label="@string/title_activity_draw" />
         <activity
             android:name="com.aba.main.draw.Draw2Activity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:label="@string/title_activity_draw" />
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.aba.main.draw.Draw3Activity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.aba.main.shudu.CitysActivity"
             android:label="@string/title_activity_shudu" />

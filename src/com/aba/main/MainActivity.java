@@ -1,6 +1,7 @@
 package com.aba.main;
 
 import com.aba.main.draw.Draw2Activity;
+import com.aba.main.draw.Draw3Activity;
 import com.aba.main.draw.DrawActivity;
 import com.aba.main.game.GameActivity;
 import com.aba.main.game.SuanActivity;
@@ -43,6 +44,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
         layout.addView(row);
         row = new TableRow(this);
         row.addView(this.createView("º∆À„", i++)) ;
+        row.addView(this.createView("ª≠Õº3", i++)) ;
         
         layout.addView(row);
 
@@ -78,6 +80,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			case 4: clazz = Draw2Activity.class ; break ;
 			case 5: clazz = CitysActivity.class ; break ;
 			case 6: clazz = SuanActivity.class ; break ;
+			case 7: clazz = Draw3Activity.class ; break ;
 			
 			default: clazz = SuanActivity.class ; break ;
 		}
