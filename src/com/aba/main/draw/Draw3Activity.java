@@ -26,6 +26,7 @@ public class Draw3Activity extends BaseActivity{
 	
 	private int paintColor = Color.RED ;
 	private int canvasColor = Color.BLUE ;
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
