@@ -1,10 +1,10 @@
 package com.aba.main;
 
 import com.aba.main.draw.Draw2Activity;
-import com.aba.main.draw.Draw3Activity;
 import com.aba.main.draw.DrawActivity;
 import com.aba.main.game.GameActivity;
 import com.aba.main.game.SuanActivity;
+import com.aba.main.music.MusicPlayerActivity;
 import com.aba.main.shudu.CitysActivity;
 import com.aba.main.shudu.ShuduActivity;
 import com.aba.main.webview.WebActivity;
@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
         layout.addView(row);
         row = new TableRow(this);
         row.addView(this.createView("¼ÆËã", i++)) ;
-        row.addView(this.createView("»­Í¼3", i++)) ;
+        row.addView(this.createView("²¥·ÅÆ÷", i++)) ;
         
         layout.addView(row);
 
@@ -80,7 +80,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			case 4: clazz = Draw2Activity.class ; break ;
 			case 5: clazz = CitysActivity.class ; break ;
 			case 6: clazz = SuanActivity.class ; break ;
-			case 7: clazz = Draw3Activity.class ; break ;
+			case 7: clazz = MusicPlayerActivity.class ; break ;
 			
 			default: clazz = SuanActivity.class ; break ;
 		}

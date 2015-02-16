@@ -57,10 +57,12 @@
             android:name="com.aba.main.draw.Draw2Activity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.aba.main.draw.Draw3Activity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
             android:name="com.aba.main.shudu.CitysActivity"
+            android:label="@string/title_activity_shudu" />
+        
+        
+        <activity
+            android:name="com.aba.main.music.MusicPlayerActivity"
             android:label="@string/title_activity_shudu" />
     </application>
 

@@ -17,7 +17,7 @@ public class BaseActivity extends Activity {
 		//项目存储数据目录
 		storedir = Environment.getDataDirectory() ;
 		storedir = Environment.getExternalStorageDirectory() ;
-		this.storedir = new File(storedir,"dyong") ;
+		this.storedir = new File("/storage/sdcard0/","dyong") ;
 		if(!this.storedir.exists()){
 			this.storedir.mkdirs() ;
 		}
