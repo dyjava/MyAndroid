@@ -8,10 +8,15 @@ import com.aba.main.music.MusicPlayerActivity;
 import com.aba.main.shudu.CitysActivity;
 import com.aba.main.shudu.ShuduActivity;
 import com.aba.main.webview.WebActivity;
+
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -98,5 +103,34 @@ public class MainActivity extends BaseActivity implements OnClickListener{
         startActivity(intent);
 	}
 	
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			dialog();
+			return true;
+		}
+		return true;
+	}
+	
+	protected void dialog() {
+		AlertDialog.Builder builder = new Builder(this);
+		builder.setMessage("确定要退出吗?");
+		builder.setTitle("提示");
+		builder.setPositiveButton("确认", new android.content.DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				//AccoutList.this.finish();
+				//System.exit(1);
+				android.os.Process.killProcess(android.os.Process.myPid());
+			}
+		});
+		builder.setNegativeButton("取消", new android.content.DialogInterface.OnClickListener() {
+			@Override 
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+		builder.create().show();
+	}
 }
 

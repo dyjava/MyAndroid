@@ -1,4 +1,4 @@
-package com.aba.main.util;
+package com.aba.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
