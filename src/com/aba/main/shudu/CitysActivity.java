@@ -11,7 +11,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.Gravity;
 import android.view.View;
@@ -67,7 +66,6 @@ public class CitysActivity extends Activity implements OnClickListener{
 	
 	//定义Handler对象
 	private Handler handler = new Handler(){
-		@SuppressLint("HandlerLeak")
 		@Override
 		//当有消息发送出来的时候就执行Handler的这个方法
 		public void handleMessage(Message msg){

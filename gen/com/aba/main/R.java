@@ -466,15 +466,36 @@ public final class R {
         public static final int pause=0x7f020004;
         public static final int start=0x7f020005;
         public static final int stop=0x7f020006;
-        public static final int table_1_0=0x7f020007;
-        public static final int table_1_1=0x7f020008;
-        public static final int table_1_2=0x7f020009;
-        public static final int table_1_3=0x7f02000a;
-        public static final int table_1_4=0x7f02000b;
-        public static final int table_1_5=0x7f02000c;
-        public static final int table_1_6=0x7f02000d;
-        public static final int table_1_7=0x7f02000e;
-        public static final int table_1_8=0x7f02000f;
+        public static final int table_0=0x7f020007;
+        public static final int table_0_0=0x7f020008;
+        public static final int table_0_1=0x7f020009;
+        public static final int table_0_2=0x7f02000a;
+        public static final int table_0_3=0x7f02000b;
+        public static final int table_0_4=0x7f02000c;
+        public static final int table_0_5=0x7f02000d;
+        public static final int table_0_6=0x7f02000e;
+        public static final int table_0_7=0x7f02000f;
+        public static final int table_0_8=0x7f020010;
+        public static final int table_1=0x7f020011;
+        public static final int table_1_0=0x7f020012;
+        public static final int table_1_1=0x7f020013;
+        public static final int table_1_2=0x7f020014;
+        public static final int table_1_3=0x7f020015;
+        public static final int table_1_4=0x7f020016;
+        public static final int table_1_5=0x7f020017;
+        public static final int table_1_6=0x7f020018;
+        public static final int table_1_7=0x7f020019;
+        public static final int table_1_8=0x7f02001a;
+        public static final int table_2=0x7f02001b;
+        public static final int table_2_0=0x7f02001c;
+        public static final int table_2_1=0x7f02001d;
+        public static final int table_2_2=0x7f02001e;
+        public static final int table_2_3=0x7f02001f;
+        public static final int table_2_4=0x7f020020;
+        public static final int table_2_5=0x7f020021;
+        public static final int table_2_6=0x7f020022;
+        public static final int table_2_7=0x7f020023;
+        public static final int table_2_8=0x7f020024;
     }
     public static final class id {
         public static final int LastImageButton=0x7f090013;
@@ -482,8 +503,8 @@ public final class R {
         public static final int PauseImageButton=0x7f090016;
         public static final int StartImageButton=0x7f090015;
         public static final int StopImageButton=0x7f090014;
-        public static final int action_settings=0x7f09001c;
-        public static final int btback=0x7f09001b;
+        public static final int action_settings=0x7f09001b;
+        public static final int btback=0x7f09001a;
         public static final int btn00=0x7f090001;
         public static final int btn01=0x7f090003;
         public static final int btn02=0x7f090004;
@@ -498,22 +519,20 @@ public final class R {
         public static final int info=0x7f090011;
         public static final int linearLayout1=0x7f09000f;
         public static final int myArrayList=0x7f090012;
-        public static final int table_0=0x7f090019;
         public static final int tableRow1=0x7f090002;
         public static final int tableRow2=0x7f090006;
         public static final int tableRow3=0x7f09000a;
         public static final int tablelayout01=0x7f090000;
         public static final int textView1=0x7f090018;
         public static final int title=0x7f090010;
-        public static final int webkit=0x7f09001a;
+        public static final int webkit=0x7f090019;
     }
     public static final class layout {
         public static final int activity_jisuan=0x7f030000;
         public static final int activity_music_item=0x7f030001;
         public static final int activity_musicplayer=0x7f030002;
         public static final int activity_shudu=0x7f030003;
-        public static final int activity_tu=0x7f030004;
-        public static final int activity_web=0x7f030005;
+        public static final int activity_web=0x7f030004;
     }
     public static final class menu {
         public static final int game=0x7f080000;
