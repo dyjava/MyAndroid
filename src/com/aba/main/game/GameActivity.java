@@ -41,7 +41,7 @@ public class GameActivity extends BaseActivity {
         //Ëæ»ú
         List<String> list = new ArrayList<String>() ;
         for(int i=0;i<8;i++){
-        	list.add(i+1+"") ;
+        	list.add(i+"") ;
         }
         list.add("") ;
         
