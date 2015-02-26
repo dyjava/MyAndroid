@@ -8,16 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aba.main.R;
+import com.aba.main.filebrowser.FileBrowserActivity;
 
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class MusicPlayerActivity extends Activity {
 	
@@ -38,8 +41,8 @@ public class MusicPlayerActivity extends Activity {
     private int currentListItme = 0;
     
     /* 音乐的路径 */
-    private static final String MUSIC_PATH = new String("/storage/sdcard0/Music/"); // /storage/sdcard0/music
-    
+    private String MUSIC_PATH = new String("/storage/sdcard0/Music/"); // /storage/sdcard0/music
+    public static final int FILE_RESULT_CODE = 1;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -104,6 +107,13 @@ public class MusicPlayerActivity extends Activity {
         	}
         });
         
+        //选择文件夹按钮
+        findViewById(R.id.selectfile).setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		Intent intent = new Intent(MusicPlayerActivity.this,FileBrowserActivity.class);
+        		startActivityForResult(intent, FILE_RESULT_CODE);
+        	}
+        }) ;
     }
     
     /*<----------------------------------------------------------------->*/
@@ -191,6 +201,18 @@ public class MusicPlayerActivity extends Activity {
     		currentListItme = mMusicList.size();
     	} else {
     		playMusic(MUSIC_PATH + mMusicList.get(currentListItme));
+    	}
+    }
+    
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	if(FILE_RESULT_CODE == requestCode){
+    		Bundle bundle = null;
+    		if(data!=null&&(bundle=data.getExtras())!=null){
+    			MUSIC_PATH = bundle.getString("savePath") ;
+    			((TextView)findViewById(R.id.path)).setText(MUSIC_PATH) ;
+//    			textView.setText("选择文件夹为："+bundle.getString("file"));
+    			this.recreate() ;
+    		}
     	}
     }
 }

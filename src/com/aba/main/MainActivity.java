@@ -2,6 +2,7 @@ package com.aba.main;
 
 import com.aba.main.draw.Draw2Activity;
 import com.aba.main.draw.DrawActivity;
+import com.aba.main.filebrowser.FileBrowserActivity;
 import com.aba.main.game.GameActivity;
 import com.aba.main.game.SuanActivity;
 import com.aba.main.music.MusicPlayerActivity;
@@ -36,7 +37,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
         
         int i =0;
         TableRow row = new TableRow(this);
-        row.addView(this.createView("http://m.12580.com", i++)) ;
+        row.addView(this.createView("http://m.cankaoxiaoxi.com/", i++)) ;
         row.addView(this.createView("数独", i++)) ;
         row.addView(this.createView("拼图", i++)) ;
 
@@ -50,6 +51,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
         row = new TableRow(this);
         row.addView(this.createView("计算", i++)) ;
         row.addView(this.createView("播放器", i++)) ;
+        row.addView(this.createView("选择文件", i++)) ;
         
         layout.addView(row);
 
@@ -86,6 +88,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			case 5: clazz = CitysActivity.class ; break ;
 			case 6: clazz = SuanActivity.class ; break ;
 			case 7: clazz = MusicPlayerActivity.class ; break ;
+			case 8: clazz = FileBrowserActivity.class ; break ;
 			
 			default: clazz = SuanActivity.class ; break ;
 		}

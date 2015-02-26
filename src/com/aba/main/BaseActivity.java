@@ -11,13 +11,15 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 public class BaseActivity extends Activity {
+
+	protected String rootPath= "/storage/sdcard0/" ;
 	protected File storedir ;
 
 	public BaseActivity(){
 		//项目存储数据目录
 		storedir = Environment.getDataDirectory() ;
 		storedir = Environment.getExternalStorageDirectory() ;
-		this.storedir = new File("/storage/sdcard0/","dyong") ;
+		this.storedir = new File(rootPath,"dyong") ;
 		if(!this.storedir.exists()){
 			this.storedir.mkdirs() ;
 		}

@@ -64,6 +64,9 @@
         <activity
             android:name="com.aba.main.music.MusicPlayerActivity"
             android:label="@string/title_activity_shudu" />
+        
+        <activity
+            android:name="com.aba.main.filebrowser.FileBrowserActivity" />
     </application>
 
 </manifest>

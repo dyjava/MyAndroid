@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -44,9 +45,13 @@ public class CitysActivity extends Activity implements OnClickListener{
 		layout.setStretchAllColumns(true);
         layout.setOrientation(TableLayout.VERTICAL);
         layout.setId(0) ;
+        layout.setScrollbarFadingEnabled(false) ;
 //        layout.setLayoutParams(new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT, 1.0f)) ;
         
-        setContentView(layout);
+        ScrollView scrol = new ScrollView(this) ;
+        scrol.addView(layout) ;
+        setContentView(scrol);
+        
         this.getData("0") ;
 	}
 
@@ -101,7 +106,7 @@ public class CitysActivity extends Activity implements OnClickListener{
 		view.setText(text);
 		view.setId(id) ;
 		view.setWidth(150) ;
-		view.setHeight(100) ;
+		view.setHeight(180) ;
 		view.setTextColor(Color.BLUE) ;
 		view.setTextSize(24) ;
 		view.setTop(100) ;

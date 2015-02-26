@@ -12,11 +12,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
-import android.widget.TextView;
 
 public class WebActivity extends Activity {
 
@@ -38,7 +35,6 @@ public class WebActivity extends Activity {
 		webview.getSettings().setJavaScriptEnabled(true);
 		webview.requestFocus();//触摸焦点起作用
 		webview.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY) ;//取消滚动条
-		
 		
 		webview.setWebViewClient(new WebViewClient(){
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -67,6 +63,7 @@ public class WebActivity extends Activity {
 //		});
 
 		webview.loadUrl(url) ;
+		//webview.loadUrl("javascript:test('1')");	//调用页面js
 	
 		this.findViewById(R.id.btback).setOnClickListener(new OnClickListener(){
 			@Override
@@ -77,6 +74,7 @@ public class WebActivity extends Activity {
 			}
 			
 		}) ;
+		
 	}
 	
 

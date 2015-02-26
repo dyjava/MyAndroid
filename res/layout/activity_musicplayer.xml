@@ -5,11 +5,26 @@
   android:layout_width="fill_parent"   
   android:layout_height="fill_parent"   
   >
+  
+  <Button
+      android:id="@+id/selectfile"  
+	  android:layout_x="0px"   
+	  android:layout_y="0px"   
+      android:layout_width="80dp"
+      android:layout_height="50dp"
+      android:text="select" />
+  <TextView
+      android:id="@+id/path" 
+	  android:layout_x="80px"   
+	  android:layout_y="0px"
+	  android:layout_width="fill_parent"
+	  android:layout_height="50dp" />
+  
   <ListView    
   android:id="@+id/myArrayList"   
   android:layout_width="fill_parent"    
   android:layout_height="fill_parent"   
-  android:layout_y="100px"
+  android:layout_y="200px"
   android:layout_weight="1"   
   android:drawSelectorOnTop="false"/>   
   <ImageButton   
@@ -17,7 +32,7 @@
   android:layout_width="wrap_content"   
   android:layout_height="wrap_content"     
   android:layout_x="10px"   
-  android:layout_y="0px"   
+  android:layout_y="100px"   
   android:src="@drawable/last"     
   />   
   <ImageButton   
@@ -25,7 +40,7 @@
   android:layout_height="wrap_content"     
   android:layout_width="wrap_content"   
   android:layout_x="110px"   
-  android:layout_y="0px"   
+  android:layout_y="100px"   
   android:src="@drawable/stop"    
   />     
   <ImageButton   
@@ -33,7 +48,7 @@
   android:layout_height="wrap_content"     
   android:layout_width="wrap_content"    
   android:layout_x="210px"   
-  android:layout_y="0px"   
+  android:layout_y="100px"   
   android:src="@drawable/start"    
   />   
   <ImageButton   
@@ -41,7 +56,7 @@
   android:layout_height="wrap_content"     
   android:layout_width="wrap_content"    
   android:layout_x="310px"   
-  android:layout_y="0px"    
+  android:layout_y="100px"    
   android:src="@drawable/pause"    
   />     
   <ImageButton   
@@ -49,7 +64,8 @@
   android:layout_width="wrap_content"   
   android:layout_height="wrap_content"    
   android:layout_x="410px"   
-  android:layout_y="0px"   
+  android:layout_y="100px"   
   android:src="@drawable/next"     
-  />   
+  />
+  
 </AbsoluteLayout> 
