@@ -508,7 +508,8 @@ public final class R {
         public static final int PauseImageButton=0x7f090018;
         public static final int StartImageButton=0x7f090017;
         public static final int StopImageButton=0x7f090016;
-        public static final int action_settings=0x7f090026;
+        public static final int action_settings=0x7f090028;
+        public static final int backurl=0x7f090026;
         public static final int btback=0x7f09001c;
         public static final int btn00=0x7f090001;
         public static final int btn01=0x7f090003;
@@ -533,14 +534,15 @@ public final class R {
         public static final int linearLayout1=0x7f09000f;
         public static final int mPath=0x7f090024;
         public static final int myArrayList=0x7f090014;
-        public static final int path=0x7f090012;
-        public static final int selectfile=0x7f090013;
+        public static final int path=0x7f090013;
+        public static final int selectfile=0x7f090012;
         public static final int tableRow1=0x7f090002;
         public static final int tableRow2=0x7f090006;
         public static final int tableRow3=0x7f09000a;
         public static final int tablelayout01=0x7f090000;
         public static final int textView1=0x7f09001a;
         public static final int title=0x7f090010;
+        public static final int titles=0x7f090027;
         public static final int webkit=0x7f09001b;
     }
     public static final class layout {
@@ -551,6 +553,7 @@ public final class R {
         public static final int activity_web=0x7f030004;
         public static final int file_row=0x7f030005;
         public static final int filelist=0x7f030006;
+        public static final int web_customtitle=0x7f030007;
     }
     public static final class menu {
         public static final int game=0x7f080000;

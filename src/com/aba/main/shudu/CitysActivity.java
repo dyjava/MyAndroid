@@ -1,5 +1,6 @@
 package com.aba.main.shudu;
 
+import com.aba.main.R.color;
 import com.aba.service.Factory;
 import com.aba.service.area.AreaDao;
 import com.aba.service.area.domain.AreaItem;
@@ -107,7 +108,7 @@ public class CitysActivity extends Activity implements OnClickListener{
 		view.setId(id) ;
 		view.setWidth(150) ;
 		view.setHeight(180) ;
-		view.setTextColor(Color.BLUE) ;
+		view.setTextColor(color.cadetblue) ;
 		view.setTextSize(24) ;
 		view.setTop(100) ;
 		view.setGravity(Gravity.CENTER);

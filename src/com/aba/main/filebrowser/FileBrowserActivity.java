@@ -67,7 +67,7 @@ public class FileBrowserActivity  extends BaseActivity {
 				}else{*/
 					Intent i = new Intent();
 					Bundle b = new Bundle();  
-					b.putString("savePath", mPath.getText().toString());  
+					b.putString("savePath", mPath.getText().toString()+"/");  
 					b.putString("url", FileBrowserActivity.this.getIntent().getStringExtra("url"));  
 					b.putString("fileName", FileBrowserActivity.this.getIntent().getStringExtra("fileName"));  
 					i.putExtras(b);

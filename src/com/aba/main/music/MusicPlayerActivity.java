@@ -24,15 +24,8 @@ import android.widget.TextView;
 
 public class MusicPlayerActivity extends Activity {
 	
-    /* 几个操作按钮 */
-    private ImageButton mFrontImageButton   = null;
-    private ImageButton mStopImageButton    = null;
-    private ImageButton mStartImageButton   = null;
-    private ImageButton mPauseImageButton   = null;
-    private ImageButton mNextImageButton    = null;
-    
     /* MediaPlayer对象 */
-    public MediaPlayer  mMediaPlayer        = null;
+    public MediaPlayer  mMediaPlayer = null;
     
     /* 播放列表 */
     private List<String> mMusicList = new ArrayList<String>();
@@ -43,23 +36,24 @@ public class MusicPlayerActivity extends Activity {
     /* 音乐的路径 */
     private String MUSIC_PATH = new String("/storage/sdcard0/Music/"); // /storage/sdcard0/music
     public static final int FILE_RESULT_CODE = 1;
-    /** Called when the activity is first created. */
+    /** 
+     * 
+     */
     @Override
     public void onCreate(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);
     	setContentView(R.layout.activity_musicplayer);
+    	
+    	mMusicList = new ArrayList<String>();
+    	
     	/* 更新显示播放列表 */
     	musicList();
+    	
     	/* 构建MediaPlayer对象 */
-    	mMediaPlayer        = new MediaPlayer();
-    	mFrontImageButton = (ImageButton) findViewById(R.id.LastImageButton);
-        mStopImageButton = (ImageButton) findViewById(R.id.StopImageButton);
-        mStartImageButton = (ImageButton) findViewById(R.id.StartImageButton);
-        mPauseImageButton = (ImageButton) findViewById(R.id.PauseImageButton);
-        mNextImageButton = (ImageButton) findViewById(R.id.NextImageButton);
+    	mMediaPlayer = new MediaPlayer();
         
         //停止按钮  
-        mStopImageButton.setOnClickListener(new ImageButton.OnClickListener(){
+        ((ImageButton) findViewById(R.id.StopImageButton)).setOnClickListener(new ImageButton.OnClickListener(){
         	@Override
         	public void onClick(View v){
         		/* 是否正在播放 */
@@ -71,7 +65,7 @@ public class MusicPlayerActivity extends Activity {
         });
         
         //开始按钮 
-        mStartImageButton.setOnClickListener(new ImageButton.OnClickListener(){
+        ((ImageButton) findViewById(R.id.StartImageButton)).setOnClickListener(new ImageButton.OnClickListener(){
         	@Override
         	public void onClick(View v){
         		playMusic(MUSIC_PATH + mMusicList.get(currentListItme));
@@ -79,7 +73,7 @@ public class MusicPlayerActivity extends Activity {
         });
         
         //暂停   
-        mPauseImageButton.setOnClickListener(new ImageButton.OnClickListener(){
+        ((ImageButton) findViewById(R.id.PauseImageButton)).setOnClickListener(new ImageButton.OnClickListener(){
         	public void onClick(View view){
         		if (mMediaPlayer.isPlaying()){
         			/* 暂停 */
@@ -92,7 +86,7 @@ public class MusicPlayerActivity extends Activity {
         });
         
         //下一首   
-        mNextImageButton.setOnClickListener(new ImageButton.OnClickListener(){
+        ((ImageButton) findViewById(R.id.NextImageButton)).setOnClickListener(new ImageButton.OnClickListener(){
         	@Override 
         	public void onClick(View arg0){
         		nextMusic();
@@ -100,7 +94,7 @@ public class MusicPlayerActivity extends Activity {
         });
         
         //上一首 
-        mFrontImageButton.setOnClickListener(new ImageButton.OnClickListener(){
+        ((ImageButton) findViewById(R.id.LastImageButton)).setOnClickListener(new ImageButton.OnClickListener(){
         	@Override
         	public void onClick(View arg0){
         		FrontMusic();
@@ -114,6 +108,8 @@ public class MusicPlayerActivity extends Activity {
         		startActivityForResult(intent, FILE_RESULT_CODE);
         	}
         }) ;
+        //文件路径
+        ((TextView)findViewById(R.id.path)).setText(MUSIC_PATH) ;
     }
     
     /*<----------------------------------------------------------------->*/
@@ -161,8 +157,7 @@ public class MusicPlayerActivity extends Activity {
     		}
 //    		ArrayAdapter<String> musicList = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1, mMusicList);
     		BaseListAdapter musicList = new BaseListAdapter(this, mMusicList) ;
-    		ListView list = (ListView)this.findViewById(R.id.myArrayList) ;
-    		list.setAdapter(musicList) ;
+    		((ListView)this.findViewById(R.id.myArrayList)).setAdapter(musicList) ;
     	}
     }
     
@@ -211,7 +206,10 @@ public class MusicPlayerActivity extends Activity {
     			MUSIC_PATH = bundle.getString("savePath") ;
     			((TextView)findViewById(R.id.path)).setText(MUSIC_PATH) ;
 //    			textView.setText("选择文件夹为："+bundle.getString("file"));
-    			this.recreate() ;
+//    			MusicPlayerActivity.this.recreate() ;
+//    			Intent intent = new Intent(MusicPlayerActivity.this, MusicPlayerActivity.class);
+//    			startActivity(intent);
+    			this.onCreate(null) ;
     		}
     	}
     }

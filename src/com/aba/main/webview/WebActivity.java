@@ -21,11 +21,14 @@ public class WebActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         //设置activity的进度条，下面一句必须在setContentView之前，否则会报错。下面的语句也可以用activity.requestWindowFeature(Window.FEATURE_PROGRESS);来替代
-        this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
+//        this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
 //        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏标题栏
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
-        
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
+//		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.activity_web);
+//        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.web_customtitle);
+		
+		
 		Bundle bundle = this.getIntent().getExtras();
         //接收url值
         String url = bundle.getString("context");
@@ -77,6 +80,11 @@ public class WebActivity extends Activity {
 		
 	}
 	
+	public void back(){
+		//切换
+		Intent intent = new Intent(WebActivity.this, MainActivity.class);
+        startActivity(intent);
+	}
 
   //设置回退  
   //覆盖Activity类的onKeyDown(int keyCoder,KeyEvent event)方法  

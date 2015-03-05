@@ -1,6 +1,7 @@
 package com.aba.main.filebrowser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import com.aba.main.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -109,19 +111,44 @@ public class FileAdapter extends BaseAdapter{
 			holder.icon.setImageBitmap(mIcon2);
 			holder.cBox.setChecked(isSelected.get(position));
 			holder.cBox.setVisibility(isVisibility.get(position));
-		}else{
+		} else {
 			holder.text.setText(f.getName());
 			if(f.isDirectory()){
 				holder.icon.setImageBitmap(mIcon3);
 				holder.cBox.setChecked(isSelected.get(position));
 				holder.cBox.setVisibility(isVisibility.get(position));
-			}else{
-				holder.icon.setImageBitmap(mIcon4);
+			} else {
+				//ÎÄ¼þÍ¼Æ¬
+				Bitmap filebitmap = getBitmap(position) ;
+				
+				holder.icon.setImageBitmap(filebitmap);
 				holder.cBox.setChecked(isSelected.get(position));
 				holder.cBox.setVisibility(isVisibility.get(position));
 			}
 		}
 		return convertView;
+	}
+
+	private Bitmap getBitmap(int position) {
+		Bitmap bm = mIcon4 ;
+		String filename = items.get(position) ;
+		if(filename.endsWith(".jpg")){
+			String path = paths.get(position) ;
+
+			try {
+				Uri imageFileUri = Uri.fromFile(new File(path)) ;
+				BitmapFactory.Options options = new BitmapFactory.Options();
+	            options.inJustDecodeBounds = true;
+				Bitmap bitmap = BitmapFactory.decodeStream(
+						context.getContentResolver().openInputStream(imageFileUri), null, options);
+	
+				bm = Bitmap.createBitmap(bitmap.getWidth(),bitmap.getHeight(), bitmap.getConfig());
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return bm ;
 	}
 
 	public List<ViewHolder> getVHs() {
